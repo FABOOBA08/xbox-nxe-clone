@@ -1,0 +1,261 @@
+.xbox-dashboard {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Segoe UI', 'Arial Narrow', Arial, sans-serif;
+  color: white;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.xbox-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url('./assets/Background.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: multiply;
+}
+
+.xbox-container {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  height: 380px;
+  width: 100vw;
+  perspective: 1200px;
+  overflow: visible;
+}
+
+.xbox-blade {
+  position: absolute;
+  width: 440px;
+  height: 330px;
+  border-radius: 12px;
+  transform-origin: center center;
+  will-change: transform, opacity, box-shadow;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.9);
+  top: 50%;
+  margin-top: -150px;
+  left: 0;
+}
+
+.blade-content {
+  display: flex;
+  height: 100%;
+  padding: 40px;
+  box-sizing: border-box;
+  background: #4d731d;
+  background: linear-gradient(0deg, rgba(77, 115, 29, 1) 0%, rgba(180, 219, 22, 1) 100%);
+}
+
+.blade-icon {
+  font-size: 80px;
+  margin-right: 30px;
+}
+
+.blade-text h3 {
+  font-size: 34px;
+
+}
+
+.blade-text p {
+  font-size: 20px;
+
+}
+
+.blade-text h3 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.blade-text p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  opacity: 0.9;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 300;
+}
+
+.blade-highlight {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+.xbox-controls {
+  position: absolute;
+  bottom: 40px;
+  left: 60px;
+  right: 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 50px;
+}
+
+.xbox-button {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #4d731d;
+  background: linear-gradient(0deg, rgba(77, 115, 29, 1) 0%, rgba(180, 219, 22, 1) 100%);
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  backdrop-filter: blur(8px);
+  box-shadow:
+    0 2px 10px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.xbox-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.xbox-button:hover {
+  background: rgba(16, 124, 16, 0.4);
+  transform: scale(1.05);
+  box-shadow:
+    0 4px 20px rgba(16, 124, 16, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.xbox-button:hover::before {
+  opacity: 1;
+}
+
+.xbox-button:active {
+  transform: scale(0.98);
+}
+
+.arrow-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  transition: transform 0.2s;
+}
+
+.xbox-button:hover .arrow-icon {
+  transform: scale(1.1);
+}
+
+.xbox-counter {
+  font-size: 16px;
+  font-weight: 400;
+  min-width: 60px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(16, 124, 16, 0.7);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.error-fallback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  z-index: 1000;
+}
+
+.error-fallback button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #107C10;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.counter-text {
+  position: absolute;
+  top: -25px;
+  left: 40px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  font-weight: 500;
+  color: #423c3c;
+  text-shadow: none;
+  white-space: nowrap;
+}
+
+.xbox-counter {
+  display: none;
+}
+.xbox-titles-container {
+  position: absolute;
+  top: 17%;
+  left: 80px;
+  width: calc(100% - 160px);
+  height: 100px;
+  perspective: 1000px;
+  z-index: 5;
+}
+
+.xbox-title {
+  position: absolute;
+  font-size: 42px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0;
+  transform-origin: center bottom;
+  will-change: transform, opacity;
+  transition: all 0.5s ease-out;
+}
+
+/* Efecto de superposición para títulos */
+.xbox-title:nth-child(1) { z-index: 6; }
+.xbox-title:nth-child(2) { z-index: 5; }
+.xbox-title:nth-child(3) { z-index: 4; }
+.xbox-title:nth-child(4) { z-index: 3; }
+.xbox-title:nth-child(5) { z-index: 2; }
+.xbox-title:nth-child(6) { z-index: 1; }
